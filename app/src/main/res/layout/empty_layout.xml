@@ -6,14 +6,12 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <ProgressBar
-        android:layout_width="30dp"
-        android:layout_height="30dp" />
 
     <TextView
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="努力加载中..." />
+        android:textSize="22sp"
+        android:text="暂未录入数据" />
 
 </LinearLayout>

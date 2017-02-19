@@ -1,7 +1,8 @@
 package com.fg.storage;
 
 import android.app.Application;
-import android.content.Context;
+
+import com.fg.storage.dao.RealmHelper;
 
 import io.realm.Realm;
 import io.realm.RealmConfiguration;
@@ -14,13 +15,15 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        initRealm(this);
+        initRealm();
+
     }
 
-    private void initRealm(Context context) {
-        Realm.init(context);
+    private void initRealm() {
+        Realm.init(this);
         RealmConfiguration config = new RealmConfiguration.Builder()
-                .name("fg.realm")
+                .name(RealmHelper.DB_NAME)
+                .schemaVersion(0)
                 .deleteRealmIfMigrationNeeded()
                 .build();
         Realm.setDefaultConfiguration(config);

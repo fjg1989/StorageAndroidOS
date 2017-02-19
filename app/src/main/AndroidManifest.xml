@@ -1,21 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.fg.storage" >
+    package="com.fg.storage">
 
     <application
-        android:allowBackup="true"
         android:name=".App"
+        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
-        <activity android:name=".ui.MainActivity" >
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".ui.home.MainActivity"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.storecell.StoreListActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.storecell.UpdateStoreActivity" />
+        <activity
+            android:name=".ui.suppliers.SupplyListActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.suppliers.UpdateSupplyActivity" />
+        <activity
+            android:name=".ui.product.ProductListActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.product.UpdateProductActivity" />
+        <activity
+            android:name=".ui.batch.BatchListActivity"
+            android:launchMode="singleTop" />
+        <activity android:name=".ui.batch.UpdateBatchActivity" />
+        <activity android:name=".ui.product.StorageActivity" />
+        <activity android:name=".ui.product.CommonActivity"></activity>
     </application>
 
 </manifest>

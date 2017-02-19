@@ -2,44 +2,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingTop="100dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    tools:context="com.fg.storage.ui.HomeFragment">
+    tools:context="com.fg.storage.ui.home.ProductCategoryFragment">
 
-    <android.support.v7.widget.SearchView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:iconifiedByDefault="true"
-        android:inputType="text"
-        android:imeOptions="actionSearch"
-        android:queryHint="请输入物料号／仓位" />
 
     <Button
+        android:id="@+id/storage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
         android:text="入库"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"/>
-
-    <android.support.v4.widget.Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/colorPrimary"
-        android:text="出库"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
+
     <android.support.v4.widget.Space
         android:layout_width="match_parent"
         android:layout_height="50dp" />
+
+    <android.support.v4.widget.Space
+        android:layout_width="match_parent"
+        android:layout_height="50dp" />
+
     <Button
+        android:id="@+id/record"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"

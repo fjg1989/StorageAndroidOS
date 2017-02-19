@@ -1,19 +1,20 @@
 package com.fg.storage.model;
 
-import java.io.Serializable;
-
 import io.realm.RealmObject;
+import io.realm.annotations.Index;
 import io.realm.annotations.PrimaryKey;
 
 /**
  * 作者：fjg on 2017/2/13 21:32
  */
 
-public class Product extends RealmObject implements Serializable {
+public class Product extends RealmObject{
     @PrimaryKey
     private int pId;
-    private String productId;//物料号
-    private String storeId;//仓位号
+    @Index
+    private String productName;//物料号
+    private int storeId;//仓位号
+    @Index
     private String batchNum;//批次 周期
     private int count;//数量
     private String supplier;//供应商
@@ -42,16 +43,16 @@ public class Product extends RealmObject implements Serializable {
         return pId;
     }
 
-    public void setpId(int pId) {
+    public void setpId(int  pId) {
         this.pId = pId;
     }
 
-    public String getProductId() {
-        return productId;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProductId(String productId) {
-        this.productId = productId;
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getRemarks() {
@@ -62,11 +63,11 @@ public class Product extends RealmObject implements Serializable {
         this.remarks = remarks;
     }
 
-    public String getStoreId() {
+    public int getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(String storeId) {
+    public void setStoreId(int storeId) {
         this.storeId = storeId;
     }
 
