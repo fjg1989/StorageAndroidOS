@@ -45,7 +45,7 @@ public class UpdateProductActivity extends BaseActivity {
     private void initData() {
         mStoreCellDao = new ProductCateDao(this);
         mId = getIntent().getIntExtra("pId", 0);
-        if (!getIntent().getStringExtra("old").isEmpty()) {
+        if (getIntent().getStringExtra("old") != null && !getIntent().getStringExtra("old").isEmpty()) {
             old.setText("旧名字：  " + getIntent().getStringExtra("old"));
         }
         addCell = getIntent().getIntExtra("addCell", 0);

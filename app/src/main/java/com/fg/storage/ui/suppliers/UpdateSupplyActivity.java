@@ -45,9 +45,10 @@ public class UpdateSupplyActivity extends BaseActivity {
     private void initData() {
         mStoreCellDao = new SupplyDao(this);
         mId = getIntent().getIntExtra("supplyId", 0);
-        if (!getIntent().getStringExtra("old").isEmpty()) {
+        if (getIntent().getStringExtra("old") != null && !getIntent().getStringExtra("old").isEmpty()) {
             old.setText("旧名字：  " + getIntent().getStringExtra("old"));
         }
+
         addCell = getIntent().getIntExtra("addCell", 0);
         switch (addCell) {
             case 0:
