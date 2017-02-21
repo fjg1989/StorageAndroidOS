@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fg.storage.R;
@@ -22,7 +23,8 @@ public class UpdateProductActivity extends BaseActivity {
     Toolbar mToolbar;
     @BindView(R.id.et_name)
     EditText etName;
-
+    @BindView(R.id.old)
+    TextView old;
     private ProductCateDao mStoreCellDao;
     private int mId;
     private int addCell;
@@ -43,6 +45,9 @@ public class UpdateProductActivity extends BaseActivity {
     private void initData() {
         mStoreCellDao = new ProductCateDao(this);
         mId = getIntent().getIntExtra("pId", 0);
+        if (!getIntent().getStringExtra("old").isEmpty()) {
+            old.setText("旧名字：  " + getIntent().getStringExtra("old"));
+        }
         addCell = getIntent().getIntExtra("addCell", 0);
         switch (addCell) {
             case 0:

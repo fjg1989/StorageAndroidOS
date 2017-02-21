@@ -48,10 +48,10 @@ public class BatchListActivity extends BaseActivity {
 
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar);
-        setToolbar(toolbar, "批次列表");
+        setToolbar(toolbar, "周期列表");
 
         Button addButton = (Button) findViewById(R.id.add_cell);
-        addButton.setText("增加批次");
+        addButton.setText("增加周期");
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -42,7 +42,7 @@ public class BatchRefreshAdapter extends CommonBaseAdapter<Batch> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateBatchActivity.class);
-                intent.putExtra("batchId", data.getBatchId());
+                intent.putExtra("batchId", data.getBatchId()).putExtra("old",data.getBatchName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 

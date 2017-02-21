@@ -6,6 +6,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fg.storage.R;
@@ -22,7 +23,8 @@ public class UpdateBatchActivity extends BaseActivity {
     Toolbar mToolbar;
     @BindView(R.id.et_name)
     EditText etName;
-
+    @BindView(R.id.old)
+    TextView old;
     private BatchDao mStoreCellDao;
     private int mId;
     private int addCell;
@@ -37,19 +39,22 @@ public class UpdateBatchActivity extends BaseActivity {
     }
 
     private void initView() {
-        etName.setHint("请输入新批次名字");
+        etName.setHint("请输入新周期名字");
     }
 
     private void initData() {
         mStoreCellDao = new BatchDao(this);
-        mId = getIntent().getIntExtra("batchId",0);
+        mId = getIntent().getIntExtra("batchId", 0);
+        if (!getIntent().getStringExtra("old").isEmpty()) {
+            old.setText("旧名字：  " + getIntent().getStringExtra("old"));
+        }
         addCell = getIntent().getIntExtra("addCell", 0);
         switch (addCell) {
             case 0:
-                setToolbar(mToolbar, "编辑批次名称");
+                setToolbar(mToolbar, "编辑周期名称");
                 break;
             case 1:
-                setToolbar(mToolbar, "增加批次");
+                setToolbar(mToolbar, "增加周期");
 
                 break;
             default:
@@ -74,7 +79,7 @@ public class UpdateBatchActivity extends BaseActivity {
                 break;
             case 1:
                 long count = mStoreCellDao.getSupplyCount();
-                int count1=(int)count;
+                int count1 = (int) count;
                 Batch storeCell = new Batch();
                 storeCell.setBatchId(count1);
                 storeCell.setBatchName(name);

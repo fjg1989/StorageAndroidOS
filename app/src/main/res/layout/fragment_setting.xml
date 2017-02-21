@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
         android:background="@color/colorPrimary"
-        android:text="批次编辑"
+        android:text="周期编辑"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
     <Button

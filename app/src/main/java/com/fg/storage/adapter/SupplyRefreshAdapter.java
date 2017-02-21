@@ -42,7 +42,7 @@ public class SupplyRefreshAdapter extends CommonBaseAdapter<Supply> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateSupplyActivity.class);
-                intent.putExtra("supplyId", data.getSupplyId());
+                intent.putExtra("supplyId", data.getSupplyId()).putExtra("old",data.getSupplyName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 

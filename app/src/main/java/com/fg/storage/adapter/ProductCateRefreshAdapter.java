@@ -42,7 +42,7 @@ public class ProductCateRefreshAdapter extends CommonBaseAdapter<ProductCate> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateProductActivity.class);
-                intent.putExtra("pId", data.getpId());
+                intent.putExtra("pId", data.getpId()).putExtra("old",data.getProductName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 

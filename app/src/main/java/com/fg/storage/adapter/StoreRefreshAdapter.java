@@ -42,7 +42,7 @@ public class StoreRefreshAdapter extends CommonBaseAdapter<StoreCell> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateStoreActivity.class);
-                intent.putExtra("storeId", data.getStoreId());
+                intent.putExtra("storeId", data.getStoreId()).putExtra("old",data.getStoreName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 
