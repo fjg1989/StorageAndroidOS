@@ -2,9 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingTop="100dp"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:paddingTop="100dp"
     tools:context="com.fg.storage.ui.home.ProductCategoryFragment">
 
 
@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@color/colorPrimary"
-        android:text="入库"
+        android:text="初始化入库"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 

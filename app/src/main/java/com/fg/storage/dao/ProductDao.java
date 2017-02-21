@@ -46,6 +46,7 @@ public class ProductDao extends RealmHelper {
         storeCell.setProductName(newName);
         mRealm.commitTransaction();
     }
+
     /**
      * update （改）
      */
@@ -55,6 +56,7 @@ public class ProductDao extends RealmHelper {
         storeCell.setCount(count);
         mRealm.commitTransaction();
     }
+
     /**
      * query （查询所有）
      */
@@ -92,6 +94,16 @@ public class ProductDao extends RealmHelper {
     public long getProductCount() {
         long storeCellCount = mRealm.where(Product.class).count();
         return storeCellCount;
+
+    }
+
+    public long getProductCountByName(String productName) {
+        List<Product> storeCells = queryAllProduct(productName);
+        int count = 0;
+        for (Product product : storeCells) {
+            count = count + product.getCount();
+        }
+        return count;
 
     }
 

@@ -44,6 +44,7 @@ public class StorageActivity extends BaseActivity {
     private List<Product> mStoreCells = new ArrayList<>();
     private RecordDao mRecordDao;
     private int storeId;
+    private String caterory;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +62,9 @@ public class StorageActivity extends BaseActivity {
         ll_store = (LinearLayout) findViewById(R.id.ll_store);
         ll_supply = (LinearLayout) findViewById(R.id.ll_supply);
         pname = (TextView) findViewById(R.id.pname);
+        if (!TextUtils.isEmpty(caterory)) {
+            pname.setText(caterory);
+        }
         batch = (TextView) findViewById(R.id.batch);
         store = (TextView) findViewById(R.id.store);
         date = (TextView) findViewById(R.id.date);
@@ -126,6 +130,8 @@ public class StorageActivity extends BaseActivity {
         mRealmHelper = new ProductDao(this);
         mRecordDao = new RecordDao(this);
         mStoreCells = mRealmHelper.queryAllProduct();
+        caterory = getIntent().getStringExtra("caterory");
+
     }
 
     @Override

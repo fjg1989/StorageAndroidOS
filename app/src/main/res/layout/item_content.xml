@@ -5,20 +5,22 @@
     android:orientation="horizontal">
 
     <LinearLayout
+        android:id="@+id/ll_item"
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
+        android:clickable="true"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/tv_batch"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
             android:text="周期"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <TextView
             android:id="@+id/tv_store_id"
@@ -27,12 +29,12 @@
             android:gravity="center"
             android:text="仓位"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="60dp"
+        android:layout_height="48dp"
         android:layout_weight="1"
         android:gravity="center"
         android:orientation="vertical">
@@ -40,21 +42,21 @@
         <TextView
             android:id="@+id/tv_num"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="周期"
+            android:text="数量"
             android:textColor="@android:color/black"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btn_out"
             android:layout_width="wrap_content"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="出库"
+            android:text="出入库"
             android:textColor="@android:color/white"
-            android:textSize="16sp" />
+            android:textSize="12sp" />
     </LinearLayout>
 
 

@@ -16,7 +16,7 @@
         app:indicator_color="#C1FFC1"
         app:indicator_corners="5dp"
         app:indicator_gravity="right"
-        app:tab_height="60dp"
+        app:tab_height="36dp"
         app:tab_mode="scrollable" />
 
     <com.fg.storage.widgt.VerticalViewPager

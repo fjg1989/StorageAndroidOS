@@ -34,28 +34,42 @@
             android:gravity="center"
             android:text=""
             android:textColor="@android:color/holo_red_light"
-            android:textSize="16sp" />
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="11sp"
+            android:layout_toRightOf="@+id/item_title"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp" />
 
         <Button
             android:id="@+id/item_btn_edit"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="36dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/item_btn_del"
             android:background="@color/colorPrimary"
             android:text="编辑"
+            android:textSize="12sp"
             android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/item_btn_del"
-            android:layout_width="66dp"
-            android:layout_height="40dp"
+            android:layout_width="48dp"
+            android:layout_height="36dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="11sp"
             android:background="@color/colorPrimary"
             android:text="删除"
+            android:textSize="12sp"
             android:textColor="#FFFFFF" />
     </RelativeLayout>
 

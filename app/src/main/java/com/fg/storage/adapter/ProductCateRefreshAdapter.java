@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.fg.storage.R;
 import com.fg.storage.dao.ProductCateDao;
+import com.fg.storage.dao.ProductDao;
 import com.fg.storage.model.ProductCate;
 import com.fg.storage.ui.product.UpdateProductActivity;
 import com.othershe.baseadapter.ViewHolder;
@@ -20,15 +21,18 @@ import java.util.List;
  */
 public class ProductCateRefreshAdapter extends CommonBaseAdapter<ProductCate> {
     private ProductCateDao mStoreCellDao;
+    private ProductDao mProducDao;
 
     public ProductCateRefreshAdapter(Context context, List<ProductCate> datas, boolean isLoadMore) {
         super(context, datas, isLoadMore);
         mStoreCellDao = new ProductCateDao(context);
+        mProducDao = new ProductDao(context);
     }
 
     @Override
     protected void convert(ViewHolder holder, final ProductCate data, final int position) {
         holder.setText(R.id.item_title, data.getProductName());
+        holder.setText(R.id.item_count, "总数：" + mProducDao.getProductCountByName(data.getProductName()));
         holder.setOnClickListener(R.id.item_btn_del, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,7 +46,7 @@ public class ProductCateRefreshAdapter extends CommonBaseAdapter<ProductCate> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateProductActivity.class);
-                intent.putExtra("pId", data.getpId()).putExtra("old",data.getProductName());
+                intent.putExtra("pId", data.getpId()).putExtra("old", data.getProductName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 

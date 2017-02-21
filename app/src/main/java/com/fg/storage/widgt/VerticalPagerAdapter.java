@@ -36,6 +36,7 @@ public class VerticalPagerAdapter extends FragmentPagerAdapter implements TabAda
 
     @Override
     public TabView.TabBadge getBadge(int position) {
+
         return null;
     }
 
@@ -49,6 +50,7 @@ public class VerticalPagerAdapter extends FragmentPagerAdapter implements TabAda
 
         return new TabView.TabTitle.Builder()
                 .setContent(titles.get(position))
+                .setTextSize(12)
                 .setTextColor(Color.WHITE, 0xBBFFFFFF)
                 .build();
     }

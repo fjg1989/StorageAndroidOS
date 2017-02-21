@@ -8,6 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.fg.storage.R;
 import com.fg.storage.adapter.ProductRefreshAdapter;
@@ -23,6 +24,8 @@ public class ContentFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private ProductDao mRealmHelper;
     private List<Product> mStoreCells = new ArrayList<>();
+    private TextView all_count;
+    private long count;
 
     public ContentFragment() {
     }
@@ -48,10 +51,13 @@ public class ContentFragment extends Fragment {
     private void initData() {
         mRealmHelper = new ProductDao(getActivity());
         mStoreCells = mRealmHelper.queryAllProduct(getProdName());
+        count = mRealmHelper.getProductCountByName(getProdName());
     }
 
 
     private void initRecyclerView(View view) {
+        all_count = (TextView) view.findViewById(R.id.all_count);
+        all_count.setText("总数：" + count);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
 
         //初始化adapter
