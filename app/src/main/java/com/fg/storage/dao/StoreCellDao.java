@@ -80,6 +80,16 @@ public class StoreCellDao extends RealmHelper {
         return storeCell;
     }
 
+    /**
+     * query （根据Id（主键）查）
+     */
+    public StoreCell queryStoreCellByName(String storeName) {
+
+        StoreCell storeCell = mRealm.where(StoreCell.class).equalTo("storeName", storeName).findFirst();
+
+        return storeCell;
+    }
+
     public long getStoreCellCount() {
         long storeCellCount = mRealm.where(StoreCell.class).count();
         return storeCellCount;
