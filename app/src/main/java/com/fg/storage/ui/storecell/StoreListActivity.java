@@ -3,6 +3,7 @@ package com.fg.storage.ui.storecell;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -85,15 +86,16 @@ public class StoreListActivity extends BaseActivity {
 
             @Override
             public void onItemClick(ViewHolder viewHolder, StoreCell data, int position) {
-                if (getIntent()!=null&&(getIntent().getIntExtra("store",0)== Constant.STORE)){
-                    setResult(RESULT_OK, new Intent().putExtra("storeid", data.getStoreId()).putExtra("storename",data.getStoreName()));
+                if (getIntent() != null && (getIntent().getIntExtra("store", 0) == Constant.STORE)) {
+                    setResult(RESULT_OK, new Intent().putExtra("storeid", data.getStoreId()).putExtra("storename", data.getStoreName()));
                     finish();
+                } else {
+                    mAdapter.showDialog(data, position);
                 }
 
             }
         });
-
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
