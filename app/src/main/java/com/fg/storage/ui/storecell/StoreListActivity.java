@@ -95,7 +95,7 @@ public class StoreListActivity extends BaseActivity {
 
             }
         });
-        GridLayoutManager layoutManager = new GridLayoutManager(this, 4);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 5);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
 
