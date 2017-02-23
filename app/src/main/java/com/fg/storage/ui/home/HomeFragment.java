@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.fg.storage.ui.product.StorageActivity;
 public class HomeFragment extends Fragment {
 
     private Context context;
+    private SearchView searchView;
 
 
     @Override
@@ -32,6 +34,24 @@ public class HomeFragment extends Fragment {
     }
 
     private void initView(View view) {
+        searchView = (SearchView) view.findViewById(R.id.searchView);
+        searchView.setIconifiedByDefault(false);
+
+        searchView.setSubmitButtonEnabled(true);
+
+        searchView.setQueryHint("查询");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                startActivity(new Intent(getActivity(), ProductCateActivity.class).putExtra("query", query));
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
         ((Button) view.findViewById(R.id.storage)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

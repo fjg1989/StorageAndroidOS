@@ -1,0 +1,25 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:context="com.fg.storage.ui.home.ProductCategoryFragment">
+    <q.rorbin.verticaltablayout.VerticalTabLayout
+        android:id="@+id/tablayout"
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        app:indicator_color="#C1FFC1"
+        app:indicator_corners="5dp"
+        app:indicator_gravity="right"
+        app:tab_height="36dp"
+        app:tab_mode="scrollable" />
+
+    <com.fg.storage.widgt.VerticalViewPager
+        android:id="@+id/vertical_viewpager"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+</LinearLayout>

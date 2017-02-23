@@ -51,18 +51,16 @@
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_trans"
+        <TextView
+            android:id="@+id/supplyname"
             android:layout_width="0dp"
             android:layout_height="24dp"
             android:layout_marginLeft="20dp"
-            android:layout_marginRight="30dp"
             android:layout_weight="1"
-            android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="转 仓"
-            android:textColor="@android:color/white"
-            android:textSize="12sp" />
+            android:text="供应商"
+            android:textSize="12sp"
+            android:textColor="@android:color/black" />
 
         <Button
             android:id="@+id/btn_out"

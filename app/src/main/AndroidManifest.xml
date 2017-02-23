@@ -35,7 +35,8 @@
             android:launchMode="singleTop" />
         <activity android:name=".ui.batch.UpdateBatchActivity" />
         <activity android:name=".ui.product.StorageActivity" />
-        <activity android:name=".ui.product.CommonActivity"></activity>
+        <activity android:name=".ui.product.CommonActivity" />
+        <activity android:name=".ui.home.ProductCateActivity"></activity>
     </application>
 
 </manifest>

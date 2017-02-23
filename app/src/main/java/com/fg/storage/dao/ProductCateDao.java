@@ -71,6 +71,13 @@ public class ProductCateDao extends RealmHelper {
         return mRealm.copyFromRealm(storeCells);
     }
 
+    /**
+     * query （查询所有）
+     */
+    public List<ProductCate> queryAllProductCateByName(String productName, String query) {
+        RealmResults<ProductCate> storeCells = mRealm.where(ProductCate.class).endsWith(productName, query).findAll();
+        return mRealm.copyFromRealm(storeCells);
+    }
 
     /**
      * query （根据Id（主键）查）

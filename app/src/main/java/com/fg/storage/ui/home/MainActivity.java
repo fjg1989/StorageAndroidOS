@@ -25,14 +25,12 @@ public class MainActivity extends BaseActivity {
 
     private void initViewPager() {
         mViewPager.setAdapter(new FragmentPagerAdapter(getSupportFragmentManager()) {
-            private String[] mTitles = new String[]{"首页", "信息分类", "信息录入"};
+            private String[] mTitles = new String[]{"首页", "信息录入"};
 
             @Override
             public Fragment getItem(int position) {
 
                 if (position == 1) {
-                    return new ProductCategoryFragment();
-                } else if (position == 2) {
                     return new SettingFragment();
                 }
                 return new HomeFragment();
