@@ -24,12 +24,18 @@ import java.util.List;
 public class ProductRefreshAdapter extends CommonBaseAdapter<Product> {
     private ProductDao mStoreCellDao;
     private StoreCellDao mStoreDao;
+    private NotifyAllCount notifyAllCount;
+    private String prodName;
+    public interface NotifyAllCount {
+        void notify(String count);
+    }
 
-    public ProductRefreshAdapter(Context context, List<Product> datas, boolean isLoadMore) {
+    public ProductRefreshAdapter(Context context,String prodName, List<Product> datas, boolean isLoadMore, NotifyAllCount notifyAllCount) {
         super(context, datas, isLoadMore);
-
+        this.notifyAllCount = notifyAllCount;
         mStoreCellDao = new ProductDao(context);
         mStoreDao = new StoreCellDao(context);
+        this.prodName=prodName;
     }
 
     @Override
@@ -75,13 +81,12 @@ public class ProductRefreshAdapter extends CommonBaseAdapter<Product> {
                 mStoreCellDao.updateProductByNum(data.getpId(), count - Integer.valueOf(editText.getText().toString().trim()));
                 data.setCount(count - Integer.valueOf(editText.getText().toString().trim()));
                 if (data.getCount() == 0) {
-
                     mStoreCellDao.deleteProduct(data.getpId());
                     notifyItemRemoved(position);
                 } else {
                     notifyItemChanged(position, data);
                 }
-
+                notifyAllCount.notify(mStoreCellDao.getProductCountByName(prodName)+"");
                 alertDialog.dismiss();
             }
         });
@@ -91,6 +96,7 @@ public class ProductRefreshAdapter extends CommonBaseAdapter<Product> {
                 mStoreCellDao.updateProductByNum(data.getpId(), count + Integer.valueOf(editText.getText().toString().trim()));
                 data.setCount(count + Integer.valueOf(editText.getText().toString().trim()));
                 notifyItemChanged(position, data);
+                notifyAllCount.notify(mStoreCellDao.getProductCountByName(prodName)+"");
                 alertDialog.dismiss();
             }
         });

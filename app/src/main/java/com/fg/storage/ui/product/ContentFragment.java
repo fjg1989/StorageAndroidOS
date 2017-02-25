@@ -61,7 +61,12 @@ public class ContentFragment extends Fragment {
         mRecyclerView = (RecyclerView) view.findViewById(R.id.recyclerview);
 
         //初始化adapter
-        mAdapter = new ProductRefreshAdapter(getActivity(), mStoreCells, false);
+        mAdapter = new ProductRefreshAdapter(getActivity(), getProdName(), mStoreCells, false, new ProductRefreshAdapter.NotifyAllCount() {
+            @Override
+            public void notify(String cou) {
+                all_count.setText("总数：" + cou);
+            }
+        });
 
         //初始化EmptyView
         View emptyView = LayoutInflater.from(getActivity()).inflate(R.layout.empty_layout, (ViewGroup) mRecyclerView.getParent(), false);

@@ -14,7 +14,8 @@
         android:id="@+id/edit_num"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入数量" />
+        android:hint="请输入数量"
+        android:inputType="number" />
 
     <LinearLayout
         android:layout_width="match_parent"

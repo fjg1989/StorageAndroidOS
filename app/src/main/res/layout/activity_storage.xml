@@ -25,7 +25,7 @@
                 android:id="@+id/ll_pname"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -47,8 +47,8 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="right"
                     android:padding="6dp"
                     android:src="@mipmap/more_next_icon" />
@@ -57,14 +57,14 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="5dp"
                 android:background="@color/tablayout" />
 
             <LinearLayout
                 android:id="@+id/ll_batch"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -85,8 +85,8 @@
                     android:layout_weight="2" />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="right"
                     android:padding="6dp"
                     android:src="@mipmap/more_next_icon" />
@@ -95,14 +95,14 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="5dp"
                 android:background="@color/tablayout" />
 
             <LinearLayout
                 android:id="@+id/ll_store"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
@@ -124,8 +124,8 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="right"
                     android:padding="6dp"
                     android:src="@mipmap/more_next_icon" />
@@ -134,14 +134,15 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/tablayout" />
+                android:layout_height="5dp"
+                android:background="@color/tablayout"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/ll_supply"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:clickable="true"
                 android:gravity="center_vertical"
                 android:orientation="horizontal"
@@ -164,8 +165,8 @@
                     android:textSize="16sp" />
 
                 <ImageView
-                    android:layout_width="36dp"
-                    android:layout_height="36dp"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
                     android:layout_gravity="right"
                     android:padding="6dp"
                     android:src="@mipmap/more_next_icon" />
@@ -174,16 +175,18 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
-                android:background="@color/tablayout" />
+                android:layout_height="5dp"
+                android:background="@color/tablayout"
+                android:visibility="gone" />
 
             <LinearLayout
                 android:id="@+id/ll_date"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="0dp"
@@ -206,14 +209,14 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="5dp"
                 android:background="@color/tablayout" />
 
             <LinearLayout
                 android:id="@+id/ll_num"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -232,6 +235,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
                     android:hint="请输入数量"
+                    android:inputType="number"
                     android:textSize="16sp" />
 
 
@@ -239,7 +243,7 @@
 
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="5dp"
                 android:background="@color/tablayout" />
 
             <EditText
@@ -249,7 +253,8 @@
                 android:layout_margin="16dp"
                 android:gravity="top"
                 android:hint="备注(字数200以内)！"
-                android:lines="5" />
+                android:lines="5"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 

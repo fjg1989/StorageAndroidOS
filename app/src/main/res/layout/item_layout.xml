@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:gravity="center"
@@ -25,7 +25,7 @@
         <Button
             android:id="@+id/item_btn_edit"
             android:layout_width="66dp"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="@color/colorPrimary"
@@ -36,7 +36,7 @@
         <Button
             android:id="@+id/item_btn_del"
             android:layout_width="66dp"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="11sp"

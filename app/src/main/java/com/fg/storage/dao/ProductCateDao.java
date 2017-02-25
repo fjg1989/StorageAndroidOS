@@ -69,7 +69,7 @@ public class ProductCateDao extends RealmHelper {
          * 对查询结果，按Id进行排序，只能对查询结果进行排序
          */
         //增序排列
-//        storeCells=storeCells.sort("storeId");
+        storeCells=storeCells.sort("productName");
 //        //降序排列
 //        storeCells=storeCells.sort("id", Sort.DESCENDING);
         return mRealm.copyFromRealm(storeCells);
