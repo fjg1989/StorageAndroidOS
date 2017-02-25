@@ -38,6 +38,10 @@ public class BatchDao extends RealmHelper {
      */
     public void deleteBatch(int id) {
         Batch storeCell = mRealm.where(Batch.class).equalTo("batchId", id).findFirst();
+        ProductDao productDao = new ProductDao(mContext);
+        if (productDao.isProductExistByFieldName("batchName", storeCell.getBatchName())) {
+            productDao.deleteProductByName("batchName", storeCell.getBatchName());
+        }
         mRealm.beginTransaction();
         storeCell.deleteFromRealm();
         mRealm.commitTransaction();
@@ -47,7 +51,7 @@ public class BatchDao extends RealmHelper {
      * update （改）
      */
     public void updateBatch(int id, String newName) {
-        if (isSupplyExistByName(newName)){
+        if (isSupplyExistByName(newName)) {
             Toast.makeText(mContext, "命名重复", Toast.LENGTH_SHORT).show();
             return;
         }

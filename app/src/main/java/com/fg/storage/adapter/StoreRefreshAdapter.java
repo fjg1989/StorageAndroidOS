@@ -38,24 +38,7 @@ public class StoreRefreshAdapter extends CommonBaseAdapter<StoreCell> {
                 showDialog(data, position);
             }
         });
-//        holder.setOnClickListener(R.id.item_btn_del, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                mStoreCellDao.deleteStoreCell(data.getStoreId());
-//                mDatas.remove(position);
-//                Toast.makeText(mContext, "删除成功", Toast.LENGTH_SHORT).show();
-//                notifyItemRemoved(position);
-//            }
-//        });
-//        holder.setOnClickListener(R.id.item_btn_edit, new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(mContext, UpdateStoreActivity.class);
-//                intent.putExtra("storeId", data.getStoreId()).putExtra("old", data.getStoreName());
-//                ((Activity) mContext).startActivityForResult(intent, 100);
-//            }
-//
-//        });
+
     }
 
     @Override
@@ -91,6 +74,7 @@ public class StoreRefreshAdapter extends CommonBaseAdapter<StoreCell> {
                 mDatas.remove(position);
                 Toast.makeText(mContext, "删除成功", Toast.LENGTH_SHORT).show();
                 notifyItemRemoved(position);
+                alertDialog.dismiss();
             }
         });
         alertDialog.show();

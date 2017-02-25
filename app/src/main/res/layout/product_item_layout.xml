@@ -13,7 +13,7 @@
         <TextView
             android:id="@+id/item_title"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="11sp"
@@ -26,7 +26,7 @@
         <TextView
             android:id="@+id/item_batch"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="11sp"
             android:layout_toRightOf="@+id/item_title"
@@ -38,7 +38,7 @@
         <TextView
             android:id="@+id/item_count"
             android:layout_width="wrap_content"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginLeft="11sp"
             android:layout_toRightOf="@+id/item_title"
@@ -50,7 +50,7 @@
         <Button
             android:id="@+id/item_btn_edit"
             android:layout_width="48dp"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/item_btn_del"
             android:background="@color/colorPrimary"
@@ -61,7 +61,7 @@
         <Button
             android:id="@+id/item_btn_del"
             android:layout_width="48dp"
-            android:layout_height="24dp"
+            android:layout_height="40dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginLeft="16dp"

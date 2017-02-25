@@ -37,6 +37,18 @@ public class ProductDao extends RealmHelper {
         mRealm.commitTransaction();
     }
 
+    public void deleteProductByName(String fieldName,String value) {
+        Product storeCell = mRealm.where(Product.class).equalTo(fieldName, value).findFirst();
+        mRealm.beginTransaction();
+        storeCell.deleteFromRealm();
+        mRealm.commitTransaction();
+    }
+    public void deleteProductByName(String fieldName,int value) {
+        Product storeCell = mRealm.where(Product.class).equalTo(fieldName, value).findFirst();
+        mRealm.beginTransaction();
+        storeCell.deleteFromRealm();
+        mRealm.commitTransaction();
+    }
     /**
      * update （改）
      */
@@ -107,6 +119,22 @@ public class ProductDao extends RealmHelper {
 
     }
 
+    public boolean isProductExistByFieldName(String fieldName, String value) {
+        Product storeCell = mRealm.where(Product.class).equalTo(fieldName, value).findFirst();
+        if (storeCell == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+    public boolean isProductExistByFieldName(String fieldName, int value) {
+        Product storeCell = mRealm.where(Product.class).equalTo(fieldName, value).findFirst();
+        if (storeCell == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
     public boolean isProductExist(int id) {
         Product storeCell = mRealm.where(Product.class).equalTo("pId", id).findFirst();
         if (storeCell == null) {

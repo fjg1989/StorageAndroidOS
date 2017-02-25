@@ -3,7 +3,10 @@ package com.fg.storage.adapter;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.fg.storage.R;
@@ -32,17 +35,14 @@ public class SupplyRefreshAdapter extends CommonBaseAdapter<Supply> {
         holder.setOnClickListener(R.id.item_btn_del, new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mStoreCellDao.deleteSupply(data.getSupplyId());
-                mDatas.remove(position);
-                Toast.makeText(mContext, "删除成功", Toast.LENGTH_SHORT).show();
-                notifyItemRemoved(position);
+                showSure(data, position);
             }
         });
         holder.setOnClickListener(R.id.item_btn_edit, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, UpdateSupplyActivity.class);
-                intent.putExtra("supplyId", data.getSupplyId()).putExtra("old",data.getSupplyName());
+                intent.putExtra("supplyId", data.getSupplyId()).putExtra("old", data.getSupplyName());
                 ((Activity) mContext).startActivityForResult(intent, 100);
             }
 
@@ -52,5 +52,36 @@ public class SupplyRefreshAdapter extends CommonBaseAdapter<Supply> {
     @Override
     protected int getItemLayoutId() {
         return R.layout.item_layout;
+    }
+
+    public void showSure(final Supply data, final int position) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+        View view = ((Activity) mContext).getLayoutInflater().inflate(R.layout.alert_layout, null);
+        final AlertDialog alertDialog = builder.setTitle("操作")
+                .setView(view)
+                .create();
+        final EditText editText = (EditText) view.findViewById(R.id.edit_num);
+        editText.setVisibility(View.GONE);
+        Button in = (Button) view.findViewById(R.id.in);
+        Button out = (Button) view.findViewById(R.id.out);
+        in.setText("确定");
+        out.setText("取消");
+        in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mStoreCellDao.deleteSupply(data.getSupplyId());
+                mDatas.remove(position);
+                Toast.makeText(mContext, "删除成功", Toast.LENGTH_SHORT).show();
+                notifyItemRemoved(position);
+                alertDialog.dismiss();
+            }
+        });
+        out.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertDialog.dismiss();
+            }
+        });
+        alertDialog.show();
     }
 }

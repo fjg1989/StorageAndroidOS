@@ -19,5 +19,6 @@
         android:background="@color/colorPrimary"
         android:text="增加供应商"
         android:textColor="#FFFFFF"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:visibility="gone" />
 </RelativeLayout>

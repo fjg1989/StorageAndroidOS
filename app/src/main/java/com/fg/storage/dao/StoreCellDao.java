@@ -37,9 +37,15 @@ public class StoreCellDao extends RealmHelper {
      */
     public void deleteStoreCell(int id) {
         StoreCell storeCell = mRealm.where(StoreCell.class).equalTo("storeId", id).findFirst();
+        ProductDao productDao = new ProductDao(mContext);
+        if (productDao.isProductExistByFieldName("storeId", storeCell.getStoreId())) {
+            productDao.deleteProductByName("storeId", storeCell.getStoreId());
+        }
+
         mRealm.beginTransaction();
         storeCell.deleteFromRealm();
         mRealm.commitTransaction();
+
     }
 
     /**

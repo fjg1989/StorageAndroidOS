@@ -8,6 +8,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -51,7 +53,19 @@ public class StoreListActivity extends BaseActivity {
     private void initView() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolBar);
         setToolbar(toolbar, "库位列表");
-
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_edit:
+                        startActivityForResult(new Intent(StoreListActivity.this, UpdateStoreActivity.class).putExtra("addCell", 1), 101);
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+            }
+        });
         Button addButton = (Button) findViewById(R.id.add_cell);
         addButton.setText("增加库位");
         addButton.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +141,12 @@ public class StoreListActivity extends BaseActivity {
                 }
             }
         }, 1000);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+         getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     @Override

@@ -37,6 +37,10 @@ public class ProductCateDao extends RealmHelper {
      */
     public void deleteProductCate(int id) {
         ProductCate storeCell = mRealm.where(ProductCate.class).equalTo("pId", id).findFirst();
+        ProductDao productDao = new ProductDao(mContext);
+        if (productDao.isProductExistByFieldName("productName", storeCell.getProductName())) {
+            productDao.deleteProductByName("productName",storeCell.getProductName());
+        }
         mRealm.beginTransaction();
         storeCell.deleteFromRealm();
         mRealm.commitTransaction();

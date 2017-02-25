@@ -136,6 +136,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/tablayout" />
+
             <LinearLayout
                 android:id="@+id/ll_supply"
                 android:layout_width="match_parent"
@@ -143,7 +144,8 @@
                 android:layout_marginTop="16dp"
                 android:clickable="true"
                 android:gravity="center_vertical"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone">
 
                 <TextView
                     android:layout_width="0dp"
@@ -174,6 +176,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="20dp"
                 android:background="@color/tablayout" />
+
             <LinearLayout
                 android:id="@+id/ll_date"
                 android:layout_width="match_parent"
