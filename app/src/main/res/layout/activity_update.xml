@@ -30,6 +30,7 @@
             android:layout_margin="20dp"
             android:background="@drawable/stoke_bg"
             android:hint="请输入物料号码"
+            android:inputType="number"
             android:padding="5dp"
             android:textSize="22sp" />
     </LinearLayout>

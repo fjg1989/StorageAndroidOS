@@ -3,6 +3,7 @@ package com.fg.storage.ui.storecell;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
+import android.text.InputType;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
@@ -36,6 +37,7 @@ public class UpdateStoreActivity extends BaseActivity {
         ButterKnife.bind(this);
         initData();
         etName.setHint("请输入新仓位名字");
+        etName.setInputType(InputType.TYPE_CLASS_TEXT);
     }
 
     private void initData() {
