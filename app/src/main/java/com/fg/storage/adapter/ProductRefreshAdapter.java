@@ -41,10 +41,10 @@ public class ProductRefreshAdapter extends CommonBaseAdapter<Product> {
     @Override
     protected void convert(ViewHolder holder, final Product data, final int position) {
         ;
-        holder.setText(R.id.tv_batch, "周期:" + data.getBatchNum());
-        holder.setText(R.id.tv_store_id, "仓位:" + mStoreDao.queryStoreCellById(data.getStoreId()).getStoreName());
+        holder.setText(R.id.tv_batch,  data.getBatchNum());
+        holder.setText(R.id.tv_store_id, mStoreDao.queryStoreCellById(data.getStoreId()).getStoreName());
         holder.setText(R.id.tv_num, "数量:" + data.getCount());
-        holder.setText(R.id.supplyname, "供应商：" + data.getSupplier());
+        holder.setText(R.id.supplyname,  data.getSupplier());
         holder.setOnClickListener(R.id.btn_out, new View.OnClickListener() {
 
             @Override
