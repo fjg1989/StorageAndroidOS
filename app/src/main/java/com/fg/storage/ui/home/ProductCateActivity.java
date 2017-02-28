@@ -39,7 +39,7 @@ public class ProductCateActivity extends BaseActivity {
         String queryKey = getIntent().getStringExtra("query");
         products.clear();
         holder = new VerticalPagerAdapter.Holder(getSupportFragmentManager());
-        products = productDao.queryAllProductCateByName("productName",queryKey);
+        products = productDao.queryAllProductCateByName("productName",Integer.valueOf(queryKey));
         count = products.size();
         if (count == 0) return;
         for (int i = 0; i < products.size(); i++) {

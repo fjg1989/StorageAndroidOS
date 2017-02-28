@@ -39,7 +39,7 @@ public class ProductCateDao extends RealmHelper {
         ProductCate storeCell = mRealm.where(ProductCate.class).equalTo("pId", id).findFirst();
         ProductDao productDao = new ProductDao(mContext);
         if (productDao.isProductExistByFieldName("productName", storeCell.getProductName())) {
-            productDao.deleteProductByName("productName",storeCell.getProductName());
+            productDao.deleteProductByName("productName", storeCell.getProductName());
         }
         mRealm.beginTransaction();
         storeCell.deleteFromRealm();
@@ -69,7 +69,7 @@ public class ProductCateDao extends RealmHelper {
          * 对查询结果，按Id进行排序，只能对查询结果进行排序
          */
         //增序排列
-        storeCells=storeCells.sort("productName");
+        storeCells = storeCells.sort("productNameSort");
 //        //降序排列
 //        storeCells=storeCells.sort("id", Sort.DESCENDING);
         return mRealm.copyFromRealm(storeCells);
@@ -78,8 +78,8 @@ public class ProductCateDao extends RealmHelper {
     /**
      * query （查询所有）
      */
-    public List<ProductCate> queryAllProductCateByName(String productName, String query) {
-        RealmResults<ProductCate> storeCells = mRealm.where(ProductCate.class).endsWith(productName, query).findAll();
+    public List<ProductCate> queryAllProductCateByName(String productName, int query) {
+        RealmResults<ProductCate> storeCells = mRealm.where(ProductCate.class).endsWith(productName, query + "").findAll();
         return mRealm.copyFromRealm(storeCells);
     }
 
@@ -94,7 +94,12 @@ public class ProductCateDao extends RealmHelper {
     }
 
     public long getProductCateCount() {
-        long storeCellCount = mRealm.where(ProductCate.class).count();
+        long storeCellCount = 0;
+        if (mRealm.where(ProductCate.class).count() == 0) {
+            return storeCellCount;
+        } else {
+            storeCellCount = (long) mRealm.where(ProductCate.class).max("pId") + 1;
+        }
         return storeCellCount;
 
     }

@@ -85,7 +85,12 @@ public class BatchDao extends RealmHelper {
     }
 
     public long getSupplyCount() {
-        long storeCellCount = mRealm.where(Batch.class).count();
+        long storeCellCount = 0;
+        if (mRealm.where(Batch.class).count() == 0) {
+            return storeCellCount;
+        } else {
+            storeCellCount = (long) mRealm.where(Batch.class).max("batchId") + 1;
+        }
         return storeCellCount;
 
     }

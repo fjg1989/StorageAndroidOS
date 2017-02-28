@@ -14,8 +14,20 @@ public class ProductCate extends RealmObject {
     @Index
     private String productName;//物料号
 
+    @Index
+    private int productNameSort;
+
+    public int getProductNameSort() {
+        return productNameSort;
+    }
+
+    public void setProductNameSort(int productNameSort) {
+        this.productNameSort = productNameSort;
+    }
+
     public ProductCate() {
     }
+
     public int getpId() {
         return pId;
     }

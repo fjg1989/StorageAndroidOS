@@ -34,7 +34,7 @@ public class ProductCateRefreshAdapter extends CommonBaseAdapter<ProductCate> {
 
     @Override
     protected void convert(ViewHolder holder, final ProductCate data, final int position) {
-        holder.setText(R.id.item_title, data.getProductName());
+        holder.setText(R.id.item_title, data.getProductName()+"");
         holder.setText(R.id.item_count, "总数：" + mProducDao.getProductCountByName(data.getProductName()));
         holder.setOnClickListener(R.id.item_btn_del, new View.OnClickListener() {
             @Override

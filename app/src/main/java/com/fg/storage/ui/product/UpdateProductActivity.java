@@ -83,6 +83,7 @@ public class UpdateProductActivity extends BaseActivity {
                 ProductCate storeCell = new ProductCate();
                 storeCell.setpId(count1);
                 storeCell.setProductName(name);
+                storeCell.setProductNameSort(Integer.valueOf(name));
                 mStoreCellDao.addProduct(storeCell);
                 Toast.makeText(this, "添加成功", Toast.LENGTH_SHORT).show();
                 setResult(RESULT_OK);

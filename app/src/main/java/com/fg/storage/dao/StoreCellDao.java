@@ -97,8 +97,13 @@ public class StoreCellDao extends RealmHelper {
     }
 
     public long getStoreCellCount() {
-        long storeCellCount = mRealm.where(StoreCell.class).count();
-        return storeCellCount;
+        long storeCellCount=0;
+        if (mRealm.where(StoreCell.class).count()==0){
+            return storeCellCount;
+        }else{
+            storeCellCount = (long) mRealm.where(StoreCell.class).max("storeId")+1;
+        }
+        return storeCellCount + 1;
 
     }
 
