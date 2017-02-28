@@ -57,6 +57,7 @@ public class ProductCateDao extends RealmHelper {
         ProductCate storeCell = mRealm.where(ProductCate.class).equalTo("pId", id).findFirst();
         mRealm.beginTransaction();
         storeCell.setProductName(newName);
+        storeCell.setProductNameSort(Integer.valueOf(newName));
         mRealm.commitTransaction();
     }
 
